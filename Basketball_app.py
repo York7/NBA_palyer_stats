@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd 
 import base64
 import seaborn as sb
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+import streamlit.components.v1 as stc
+import codecs
 
 st.title('NBA Player Stats Explorers')
 
@@ -11,7 +13,12 @@ st.markdown("""
 This app performs simple webscriping of NBA player stats data
 
 * **Data source:** [Basketball-reference.com](https://www.basketball-reference.com/leagues/NBA_2020_per_game.html) 
+
+* **Glossary:** List of glossay informations
 """)
+html_file = codecs.open('glossary.html','r')
+page = html_file.read()
+stc.html(page,width=500,height=200,scrolling=True)
 
 # Create a sidebar menu for a web
 st.sidebar.header('User Input feature: ')
